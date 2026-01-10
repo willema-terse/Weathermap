@@ -985,7 +985,8 @@ else
 		// if the cacti config was included properly, then 
 		// this will be non-empty, and we can unhide the cacti links in the Link Properties box
 		// NOTE: change for libreNMS
-		if( ! isset($config['install_dir']) )
+		//if( ! isset($config['install_dir']) )
+		if( ! $librenms_found ) // display device link popup if using librenms
 		{
 			echo "    .cactilink { display: none; }\n";
 			echo "    .cactinode { display: none; }\n";
