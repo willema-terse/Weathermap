@@ -55,6 +55,20 @@ $valid_show_interfaces = array (
 	elseif (validate_device_id ($config['plugins']['Weathermap']['show_interfaces']))
 		$weathermap_config['show_interfaces'] = $config['plugins']['Weathermap']['show_interfaces'];
 
+// ADD THIS CODE HERE:
+// Determine the base URL dynamically if not set in config
+if (!isset($config['base_url']) || empty($config['base_url'])) {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $host = $_SERVER['HTTP_HOST'];
+    $config['base_url'] = $protocol . $host . '/';
+}
+
+// Ensure base_url ends with a slash
+if (substr($config['base_url'], -1) !== '/') {
+    $config['base_url'] .= '/';
+}
+// END OF ADDED CODE
+
 
 // ******************************************
 
