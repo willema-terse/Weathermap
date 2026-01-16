@@ -256,7 +256,9 @@ function librenmspicker()
         }
 
     // newWindow.location = "data-pick.php?command=link_step1";
-    newWindow.location = "data-pick.php?command=link_step1&node1=" + node1;
+    // newWindow.location = "data-pick.php?command=link_step1&node1=" + node1;
+		// Plugin for Librenms Path Selector
+		newWindow.location = baseURL + "/plugins/Weathermap/data-pick.php?command=link_step1&node1=" + node1;
     }
 
 
@@ -274,7 +276,9 @@ function nodelibrenmspicker()
         newWindow.focus();
         }
 
-        newWindow.location = "data-pick.php?command=node_step1";
+        //newWindow.location = "data-pick.php?command=node_step1";
+		Plugin for Librenms selector
+		newWindow.location = baseURL + "/plugins/Weathermap/data-pick.php?command=node_step1";
     }
 
 function show_context_help(itemid, targetid)
